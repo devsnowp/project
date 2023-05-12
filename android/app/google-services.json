@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "989446467344",
+    "project_id": "snowprojectskj",
+    "storage_bucket": "snowprojectskj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989446467344:android:535eaeb5150d23bf2dff95",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989446467344-f15r74e2u0ivtddoflilcah63vjabgpm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYRy-43xsSVZqHdwZE4QCwCtKkYarakjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989446467344-f15r74e2u0ivtddoflilcah63vjabgpm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
