@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project/components/my_textfield.dart';
 import 'package:project/components/my_button.dart';
@@ -9,12 +10,17 @@ class LoginPage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signIn() {}
+  void signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: usernameController.text,
+      password: passwordController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink[600],
+      backgroundColor: Colors.blue[900],
       body: SingleChildScrollView(
         reverse: true,
         child: SafeArea(
@@ -23,10 +29,10 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 30),
-                Icon(
+                const Icon(
                   Icons.open_with,
                   size: 100,
-                  color: Colors.tealAccent[400],
+                  color: Colors.white,
                 ),
                 const SizedBox(height: 30),
                 const Text(
@@ -76,7 +82,7 @@ class LoginPage extends StatelessWidget {
                       Expanded(
                         child: Divider(
                           thickness: 1,
-                          color: Colors.tealAccent,
+                          color: Colors.black,
                         ),
                       ),
                       Padding(
@@ -92,7 +98,7 @@ class LoginPage extends StatelessWidget {
                       Expanded(
                         child: Divider(
                           thickness: 1,
-                          color: Colors.tealAccent,
+                          color: Colors.blue,
                         ),
                       )
                     ],
@@ -118,7 +124,7 @@ class LoginPage extends StatelessWidget {
                     SizedBox(width: 5),
                     Text("Se cadastre",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         )),
                   ],
