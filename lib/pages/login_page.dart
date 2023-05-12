@@ -4,23 +4,36 @@ import 'package:project/components/my_textfield.dart';
 import 'package:project/components/my_button.dart';
 import 'package:project/components/square_tile.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
   void signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: usernameController.text,
-      password: passwordController.text,
-    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: usernameController.text,
+        password: passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password');
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[900],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         reverse: true,
         child: SafeArea(
@@ -29,16 +42,15 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 30),
-                const Icon(
-                  Icons.open_with,
-                  size: 100,
-                  color: Colors.white,
+                const Text(
+                  "LOGIN",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                 ),
                 const SizedBox(height: 30),
                 const Text(
                   'Bem-vindo!',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 18,
                   ),
                 ),
@@ -63,7 +75,7 @@ class LoginPage extends StatelessWidget {
                       Text(
                         'Esqueceu a senha?',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 14,
                         ),
                       )
@@ -90,7 +102,7 @@ class LoginPage extends StatelessWidget {
                         child: Text(
                           "Ou continue com",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black87,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -119,7 +131,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Text(
                       "Não é cadastrado?",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black87),
                     ),
                     SizedBox(width: 5),
                     Text("Se cadastre",
