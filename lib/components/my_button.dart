@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/login_page.dart';
 
 class MyButton extends StatelessWidget {
   final Function()? onTap;
@@ -12,14 +13,14 @@ class MyButton extends StatelessWidget {
         padding: const EdgeInsets.all(25),
         margin: const EdgeInsets.symmetric(horizontal: 25),
         decoration: BoxDecoration(
-          color: Colors.tealAccent[400],
+          color: Colors.black,
           borderRadius: BorderRadius.circular(8),
         ),
         child: const Center(
           child: Text(
             "Login",
             style: TextStyle(
-              color: Colors.pink,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 16,
             ),
